@@ -1,0 +1,133 @@
+MySQL basic queries
+
+Database Quries
+
+To create database
+#CREATE DATABASE databasename;
+
+To Delete database
+#DROP DATABASE databasename;
+
+To Create a table
+#CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+   ....
+);
+
+To delete table
+#DROP TABLE table_name;
+
+To alter a table
+#ALTER TABLE table_name
+ADD column_name datatype;
+
+#ALTER TABLE table_name
+DROP COLUMN column_name;
+
+#ALTER TABLE table_name
+MODIFY COLUMN column_name datatype;
+
+Constraints(NOT NULL , Unique , Primary Key , Foreign Key , Check , Default , Create Index)
+#CREATE TABLE table_name (
+    column1 datatype constraint,
+    column2 datatype constraint,
+    column3 datatype constraint,
+    ....
+);
+
+
+Table Quries
+
+Select
+#SELECT column1, column2, ...
+FROM table_name;
+
+#SELECT *
+FROM table_name;
+
+Where Condition 
+#SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+
+And , Or , Not Operations
+#SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 AND condition2 OR condition3 ...;
+
+#SELECT column1, column2, ...
+FROM table_name
+WHERE NOT condition;
+
+Order By
+#SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;(either asc or desc)
+
+Inserting values to table
+#INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...),(value1, value2, value3, ...),...;
+
+Null values
+#SELECT column_names
+FROM table_name
+WHERE column_name IS NULL;
+
+#SELECT column_names
+FROM table_name
+WHERE column_name IS NOT NULL;
+
+Update table
+#UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+
+Delete values from a table
+#DELETE FROM table_name WHERE condition;
+
+Limit
+#SELECT * FROM Customers
+LIMIT 3;
+
+Joins
+Inner Join
+#SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+
+Example:
+
+create table student(student_id INT, first_name VARCHAR(100), last_name VARCHAR(100),age INT, grade VARCHAR(1));
+
+SELECT first_name, last_name FROM student;
+
+SELECT DISTINCT first_name, last_name FROM student;
+
+SELECT * FROM student WHERE age > 20;
+
+SELECT * FROM student ORDER BY age;
+
+SELECT first_name, last_name  FROM student  LIMIT 2;
+
+INSERT INTO student(student_id, first_name, last_name, age, grade) VALUES (7, 'Alice', 'Johnson', 21, 'B');
+
+INSERT INTO student(student_id, first_name, last_name, age, grade) VALUES (9, 'Bruice', 'son', 21, 'A');
+
+INSERT INTO student(student_id, first_name, last_name, age, grade) VALUES (10, 'Ali', 'Johns', 20, 'C');
+
+INSERT INTO student(student_id, first_name, last_name, age, grade) VALUES (91, 'Irshad', 'John', 21, 'B');
+
+INSERT INTO student(student_id, first_name, last_name, age, grade) VALUES (11, 'Raja', 'son', 20, 'B');
+
+UPDATE student SET age = 20, grade = 'B' WHERE student_id = 9;
+
+SELECT * FROM student;
+
+DELETE FROM student WHERE student_id = 11;
+
+SELECT COUNT(*) FROM student;
+
+SELECT student.first_name, student.last_name, courses.course_name FROM students INNERJOIN courses ON students.student_id = courses.course_id;
+
